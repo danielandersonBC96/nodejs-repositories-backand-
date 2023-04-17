@@ -72,7 +72,7 @@ const server = http.createServer(( req, res ) => {
     let filePath = 
         contentType ==='text/html' && req.url ==='/'
             ? path.join(__dirname, 'Views', ' index.html')
-            :contentType === 'text;html' && req.url.slice(-1) ==='/'
+            :contentType === 'text/html' && req.url.slice(-1) ==='/'
                  ?  path.join(__dirname, 'Views', ' index.html')
                  :  contentType === 'text/html'
                         ? path.join(__dirname, 'Views',  req.url)
@@ -83,12 +83,12 @@ const server = http.createServer(( req, res ) => {
       const  fileExists = fs.existsSync ( filePath)
       if( fileExists) {
 
-        server(filePath,contentType,res)
+        serverFile(filePath,contentType,res)
 
       }else {
         switch( path.parse(filePath).base){
             case 'old-page.html':
-                res. writeHead(301,{'location': '/new-page.html' })
+                res. writeHead(301,{'location': '/Views/new-page.html' })
                 res.end();
                 break
             case ' www-page.html':
