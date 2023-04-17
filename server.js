@@ -88,11 +88,11 @@ const server = http.createServer(( req, res ) => {
       }else {
         switch( path.parse(filePath).base){
             case 'old-page.html':
-                res. writeHead(301,{'location': '/Views/new-page.html' })
+                res. writeHead(301,{'Location': '/Views/new-page.html' })
                 res.end();
                 break
             case ' www-page.html':
-                res.writeHead (301,{'location': '/'})
+                res.writeHead (301,{'Location': '/Views/index.html'})
                 res.end()
                 break
             default:
